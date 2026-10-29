@@ -22,7 +22,8 @@ export const personalInfo = {
   github: 'https://github.com/vangalahasini',
   existingPortfolio: 'https://portfolio-nu-opal-3wty2x5sd0.vercel.app/',
   profilePhotoPath: '/images/hasini%20-%20profile.jpeg',
-  resumePath: null,
+  resumePath: '/images/Hasini_Vangala_Resume.pdf',
+  resumeDownloadFilename: 'Hasini_Vangala_Resume.pdf',
   summary:
     'I am a passionate Computer Science Engineering student with a strong interest in software development, technology, and innovation. I enjoy learning new skills, exploring emerging technologies, and developing practical solutions through coding and creative thinking. With knowledge of Python, Java, and web development, I am continuously strengthening my technical skills through projects, internships, and hands-on learning. I aspire to grow as a software professional, collaborate with like-minded individuals, and contribute to innovative projects.',
   statusBadge: 'Open to Internship & Entry-Level Opportunities',

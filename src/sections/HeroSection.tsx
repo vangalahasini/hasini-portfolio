@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, FileText, ExternalLink, Code2, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowDown, Download, FileText, ExternalLink, Code2, Sparkles, CheckCircle2 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 interface HeroSectionProps {
@@ -91,14 +91,35 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
                 <ArrowDown className="w-4 h-4" />
               </a>
 
-              {/* Resume Overview Modal Action */}
+              {/* Download Resume Button */}
+              <a
+                href="/images/Hasini_Vangala_Resume.pdf"
+                download="Hasini_Vangala_Resume.pdf"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:border-slate-400 dark:hover:border-slate-600 focus-visible:outline-2 focus-visible:outline-blue-600"
+              >
+                <Download className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <span>Download Resume</span>
+              </a>
+
+              {/* View Resume Link in a new tab */}
+              <a
+                href="/images/Hasini_Vangala_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-3 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-colors"
+              >
+                <span>View Resume</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+
+              {/* Quick Resume Overview Modal Action */}
               <button
                 type="button"
                 onClick={onOpenResume}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold text-sm transition-all hover:border-slate-400 dark:hover:border-slate-600 focus-visible:outline-2 focus-visible:outline-blue-600"
+                className="inline-flex items-center gap-1 px-2.5 py-3 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+                title="View quick resume credentials summary modal"
               >
-                <FileText className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                <span>Resume Overview</span>
+                <span>(Summary)</span>
               </button>
 
               <a

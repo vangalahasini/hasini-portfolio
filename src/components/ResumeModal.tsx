@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, FileText, Check, ExternalLink, GraduationCap, Briefcase, Mail } from 'lucide-react';
+import { X, Download, FileText, Check, ExternalLink, GraduationCap, Briefcase, Mail } from 'lucide-react';
 import { personalInfo, experienceItems, educationItems } from '../data/portfolioData';
 
 interface ResumeModalProps {
@@ -72,12 +72,29 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
         {/* Action Bar */}
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          <button
-            onClick={handleCopySummary}
+          <a
+            href="/images/Hasini_Vangala_Resume.pdf"
+            download="Hasini_Vangala_Resume.pdf"
             className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium text-sm shadow-sm transition-all focus-visible:outline-2 focus-visible:outline-blue-600"
           >
-            {copied ? <Check className="w-4 h-4 text-emerald-200" /> : <FileText className="w-4 h-4" />}
-            <span>{copied ? 'Copied to Clipboard!' : 'Copy Resume Summary'}</span>
+            <Download className="w-4 h-4" />
+            <span>Download Official PDF</span>
+          </a>
+          <a
+            href="/images/Hasini_Vangala_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-blue-200 dark:border-blue-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-medium text-sm transition-colors"
+          >
+            <ExternalLink className="w-4 h-4" />
+            <span>View in New Tab</span>
+          </a>
+          <button
+            onClick={handleCopySummary}
+            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-sm transition-colors"
+          >
+            {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <FileText className="w-4 h-4" />}
+            <span>{copied ? 'Copied to Clipboard!' : 'Copy Summary'}</span>
           </button>
         </div>
 
