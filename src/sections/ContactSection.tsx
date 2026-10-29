@@ -11,6 +11,7 @@ export const ContactSection: React.FC = () => {
   });
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [submissionMethod, setSubmissionMethod] = useState<'formspree' | 'mailto' | null>(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
@@ -54,6 +55,7 @@ export const ContactSection: React.FC = () => {
           body: JSON.stringify(formData),
         });
         if (res.ok) {
+          setSubmissionMethod('formspree');
           setStatus('success');
           setFormData({ name: '', email: '', subject: '', message: '' });
         } else {
@@ -72,6 +74,7 @@ export const ContactSection: React.FC = () => {
           `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
         )}`;
         window.location.href = mailtoUrl;
+        setSubmissionMethod('mailto');
         setStatus('success');
       }, 700);
     }
@@ -213,15 +216,34 @@ export const ContactSection: React.FC = () => {
                   <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h4 className="text-base font-bold text-emerald-900 dark:text-emerald-200">
-                    Message Prepared & Initiated
-                  </h4>
-                  <p className="text-xs text-emerald-700 dark:text-emerald-300 max-w-md mx-auto">
-                    Thank you! Your inquiry has been routed to Hasini Vangala ({personalInfo.email}). She will review and respond shortly.
-                  </p>
+                  {submissionMethod === 'formspree' ? (
+                    <>
+                      <h4 className="text-base font-bold text-emerald-900 dark:text-emerald-200">
+                        Message Sent Successfully
+                      </h4>
+                      <p className="text-xs text-emerald-700 dark:text-emerald-300 max-w-md mx-auto">
+                        Thank you! Your inquiry was sent directly to Hasini Vangala ({personalInfo.email}) via Formspree. She will review and respond shortly.
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <h4 className="text-base font-bold text-emerald-900 dark:text-emerald-200">
+                        Email Client Opened
+                      </h4>
+                      <p className="text-xs text-emerald-700 dark:text-emerald-300 max-w-md mx-auto">
+                        Your message was transferred to your email application addressed to <span className="font-semibold">{personalInfo.email}</span>. Click send in your email client to dispatch it.
+                      </p>
+                      <div className="p-2.5 rounded-lg bg-emerald-100/70 dark:bg-emerald-900/40 text-[11px] text-emerald-800 dark:text-emerald-300">
+                        Note: To enable direct in-browser sending on Vercel without opening an email client, configure <code className="font-mono bg-white/70 dark:bg-slate-900/70 px-1 py-0.5 rounded">VITE_FORMSPREE_ID</code> in Vercel project environment variables.
+                      </div>
+                    </>
+                  )}
                   <button
                     type="button"
-                    onClick={() => setStatus('idle')}
+                    onClick={() => {
+                      setStatus('idle');
+                      setSubmissionMethod(null);
+                    }}
                     className="inline-flex items-center px-4 py-2 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition-colors"
                   >
                     Send Another Message
