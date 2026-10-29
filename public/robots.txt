@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-nu-opal-3wty2x5sd0.vercel.app/sitemap.xml
