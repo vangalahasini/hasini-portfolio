@@ -69,11 +69,11 @@ Open [http://localhost:3000](http://localhost:3000) (or the URL shown in your te
 3. If no image is present or fails to load, a graceful fallback with your initials (`HV`) and academic credentials (`Computer Science Engineering · KITS`) is automatically displayed.
 
 ### Resume PDF
-1. Save your latest resume PDF into `public/resume/`:
+1. Save your latest resume PDF into `public/images/`:
    ```
-   public/resume/Hasini_Vangala_Resume.pdf
+   public/images/Hasini_Vangala_Resume.pdf
    ```
-   Browser URL: `/resume/Hasini_Vangala_Resume.pdf`
+   Browser URL: `/images/Hasini_Vangala_Resume.pdf`
 2. When visitors click **"Download Resume"**, this exact file downloads with the filename `Hasini_Vangala_Resume.pdf`.
 3. Visitors can also click **"View Resume"** to inspect the PDF directly in a new browser tab.
 

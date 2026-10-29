@@ -100,7 +100,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
         {/* Note on PDF Setup for Hasini */}
         <div className="mt-4 p-3.5 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/60 dark:border-blue-900/60 text-xs text-blue-800 dark:text-blue-300">
-          <span className="font-semibold">Setup Note:</span> To update the downloadable PDF file, place your latest resume named <code className="px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 font-mono text-blue-900 dark:text-blue-200">Hasini_Vangala_Resume.pdf</code> into the <code className="px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 font-mono text-blue-900 dark:text-blue-200">public/resume/</code> folder.
+          <span className="font-semibold">Setup Note:</span> To update the downloadable PDF file, place your latest resume named <code className="px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 font-mono text-blue-900 dark:text-blue-200">Hasini_Vangala_Resume.pdf</code> into the <code className="px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 font-mono text-blue-900 dark:text-blue-200">public/images/</code> folder.
         </div>
 
         {/* Quick Credentials Summary */}
